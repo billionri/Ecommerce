@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Watches E-Commerce</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0; padding: 0;
+      background: #f9f9f9;
+      color: #333;
+    }
+    header {
+      background: #111;
+      color: #fff;
+      padding: 15px 30px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    header h1 { margin: 0; }
+    .cart {
+      font-size: 16px;
+      cursor: pointer;
+    }
+    .hero {
+      text-align: center;
+      background: #eee;
+      padding: 40px 20px;
+    }
+    .hero img {
+      max-width: 400px;
+      width: 100%;
+      border-radius: 12px;
+    }
+    .products {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 20px;
+      padding: 30px;
+    }
+    .product {
+      background: #fff;
+      border-radius: 12px;
+      padding: 20px;
+      text-align: center;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+    }
+    .product img {
+      width: 100%;
+      height: 250px;
+      object-fit: cover;
+      border-radius: 10px;
+    }
+    .product h3 {
+      margin: 15px 0 10px;
+    }
+    .btn {
+      display: inline-block;
+      margin-top: 10px;
+      padding: 10px 15px;
+      background: #111;
+      color: #fff;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+      transition: 0.3s;
+    }
+    .btn:hover {
+      background: #444;
+    }
+    .checkout {
+      text-align: center;
+      margin: 30px;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>Luxury Watches</h1>
+    <div class="cart">🛒 Cart: <span id="cartCount">0</span></div>
+  </header>
+
+  <section class="hero">
+    <h2>Featured Watch</h2>
+    <img src="images/w4.jpg" alt="Featured Watch">
+  </section>
+
+  <section class="products">
+    <div class="product">
+      <img src="images/w1.jpg" alt="Tissot PRX">
+      <h3>Tissot PRX</h3>
+      <p>₹45,000</p>
+      <button class="btn" onclick="addToCart('Tissot PRX - ₹45,000')">Add to Cart</button>
+    </div>
+    <div class="product">
+      <img src="images/w2.jpg" alt="Watch 2">
+      <h3>Omega Seamaster</h3>
+      <p>₹3,50,000</p>
+      <button class="btn" onclick="addToCart('Omega Seamaster - ₹3,50,000')">Add to Cart</button>
+    </div>
+    <div class="product">
+      <img src="images/w3.jpg" alt="Watch 3">
+      <h3>Rolex Submariner</h3>
+      <p>₹8,00,000</p>
+      <button class="btn" onclick="addToCart('Rolex Submariner - ₹8,00,000')">Add to Cart</button>
+    </div>
+	<div class="product">
+      <img src="images/w4.jpg" alt="Watch 3">
+      <h3>Rolex Submariner</h3>
+      <p>₹8,00,000</p>
+      <button class="btn" onclick="addToCart('Rolex Submariner - ₹8,00,000')">Add to Cart</button>
+    </div>
+	<div class="product">
+      <img src="images/w5.jpg" alt="Watch 3">
+      <h3>Rolex Submariner</h3>
+      <p>₹8,00,000</p>
+      <button class="btn" onclick="addToCart('Rolex Submariner - ₹8,00,000')">Add to Cart</button>
+    </div>
+	<div class="product">
+      <img src="images/w6.jpg" alt="Watch 3">
+      <h3>Rolex Submariner</h3>
+      <p>₹8,00,000</p>
+      <button class="btn" onclick="addToCart('Rolex Submariner - ₹8,00,000')">Add to Cart</button>
+    </div>
+  </section>
+
+  <div class="checkout">
+    <button class="btn" onclick="checkout()">Checkout</button>
+  </div>
+
+  <!-- EmailJS -->
+  <script src="https://cdn.jsdelivr.net/npm/emailjs-com@3/dist/email.min.js"></script>
+  <script>
+    emailjs.init("YOUR_USER_ID"); // Replace with your EmailJS userID
+
+    let cart = [];
+    function addToCart(item) {
+      cart.push(item);
+      document.getElementById("cartCount").textContent = cart.length;
+      alert(item + " added to cart!");
+    }
+
+    function checkout() {
+      if (cart.length === 0) {
+        alert("Your cart is empty!");
+        return;
+      }
+
+      emailjs.send("YOUR_SERVICE_ID", "YOUR_TEMPLATE_ID", {
+        cart_items: cart.join(", "),
+        total_items: cart.length
+      }).then(() => {
+        alert("Order sent! Check your email.");
+        cart = [];
+        document.getElementById("cartCount").textContent = 0;
+      }, (err) => {
+        alert("Failed to send: " + JSON.stringify(err));
+      });
+    }
+  </script>
+</body>
+</html>

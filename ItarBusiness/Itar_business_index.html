@@ -1,0 +1,251 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Mehboob Itars Online</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      background: #fff;
+      color: #222;
+    }
+    header {
+      background: black;
+      color: white;
+      padding: 20px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      border-radius: 40px;
+      margin: 10px;
+    }
+    header nav {
+      display: flex;
+      gap: 20px;
+    }
+    header nav a {
+      color: white;
+      text-decoration: none;
+      font-weight: bold;
+    }
+    header img {
+      height: 60px;
+      border-radius: 10px;
+    }
+    h2 {
+      text-align: center;
+      margin: 30px 0;
+    }
+  .products {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 20px;
+    padding: 20px;
+  }
+  .product {
+    width: 220px; /* 👈 narrower product card */
+    border: 2px solid black;
+    border-radius: 8px;
+    padding: 15px;
+    text-align: center;
+    transition: transform 0.3s;
+    background: #fafafa;
+  }
+  .product:hover {
+    transform: scale(1.05);
+  }
+  .product img {
+    width: 100%;
+    height: auto;   /* 👈 keep aspect ratio */
+    max-height: 200px; /* 👈 optional limit */
+    object-fit: contain; /* 👈 no cropping */
+    border: 4px double black;
+    border-radius: 8px;
+    background: white;
+  }
+  .add-btn {
+    background: linear-gradient(45deg, #FFD700, #FFC107);
+    border: none;
+    padding: 10px 15px;
+    border-radius: 5px;
+    font-weight: bold;
+    cursor: pointer;
+    color: black;
+    transition: 0.3s;
+  }
+  .add-btn:hover {
+    background: linear-gradient(45deg, #FFC107, #FFD700);
+    transform: scale(1.05);
+  }
+    .product p {
+      margin: 10px 0;
+    }
+    .qty-controls {
+      margin: 10px 0;
+    }
+    .qty-controls button {
+      background: black;
+      color: white;
+      border: none;
+      padding: 5px 10px;
+      font-size: 16px;
+      cursor: pointer;
+    }
+  
+    .ad-section {
+      background: green;
+      color: white;
+      margin: 40px 10px;
+      padding: 20px;
+      border-radius: 40px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    .ad-section button {
+      background: black;
+      color: white;
+      border: none;
+      padding: 10px 15px;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+    footer {
+      background: black;
+      color: white;
+      display: flex;
+      justify-content: space-between;
+      padding: 15px;
+      margin-top: 40px;
+    }
+    footer div {
+      flex: 1;
+      text-align: center;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Header -->
+  <header>
+    <nav>
+      <a href="#">About Itar</a>
+      <a href="#">Prices</a>
+    </nav>
+    <h1>Mehboob Itar Perfumes Online</h1>
+    <img src="images/1.jpeg" alt="Itar Image" style="height:132px">
+  </header>
+
+  <!-- Products -->
+  <h2>List of Products Available</h2>
+  <div class="products">
+    <div class="product">
+      <img src="images/1.jpeg" alt="Itar 1">
+      <p><strong>Itar Rose</strong></p>
+      <p>₹1700</p>
+      <div class="qty-controls">
+        <button onclick="changeQty(this,-1)">-</button>
+        <span>1</span>
+        <button onclick="changeQty(this,1)">+</button>
+      </div>
+      <button class="add-btn">Add to Cart</button>
+    </div>
+    <div class="product">
+      <img src="images/2.jpeg" alt="Itar 2">
+      <p><strong>Itar Musk</strong></p>
+      <p>₹1700</p>
+      <div class="qty-controls">
+        <button onclick="changeQty(this,-1)">-</button>
+        <span>1</span>
+        <button onclick="changeQty(this,1)">+</button>
+      </div>
+      <button class="add-btn">Add to Cart</button>
+    </div>
+    <div class="product">
+      <img src="images/3.jpeg" alt="Itar 3">
+      <p><strong>Itar Oud</strong></p>
+      <p>₹1700</p>
+      <div class="qty-controls">
+        <button onclick="changeQty(this,-1)">-</button>
+        <span>1</span>
+        <button onclick="changeQty(this,1)">+</button>
+      </div>
+      <button class="add-btn">Add to Cart</button>
+    </div>
+	    <div class="product">
+      <img src="images/4.jpeg" alt="Itar 4">
+      <p><strong>Itar Oud</strong></p>
+      <p>₹1700</p>
+      <div class="qty-controls">
+        <button onclick="changeQty(this,-1)">-</button>
+        <span>1</span>
+        <button onclick="changeQty(this,1)">+</button>
+      </div>
+      <button class="add-btn">Add to Cart</button>
+    </div>
+	    <div class="product">
+      <img src="images/5.jpeg" alt="Itar 5">
+      <p><strong>Itar Oud</strong></p>
+      <p>₹1700</p>
+      <div class="qty-controls">
+        <button onclick="changeQty(this,-1)">-</button>
+        <span>1</span>
+        <button onclick="changeQty(this,1)">+</button>
+      </div>
+      <button class="add-btn">Add to Cart</button>
+    </div>
+	    <div class="product">
+      <img src="images/6.jpeg" alt="Itar 6">
+      <p><strong>Itar Oud</strong></p>
+      <p>₹1700</p>
+      <div class="qty-controls">
+        <button onclick="changeQty(this,-1)">-</button>
+        <span>1</span>
+        <button onclick="changeQty(this,1)">+</button>
+      </div>
+      <button class="add-btn">Add to Cart</button>
+    </div>
+	    <div class="product">
+      <img src="images/7.jpeg" alt="Itar 7">
+      <p><strong>Itar Oud</strong></p>
+      <p>₹1200</p>
+      <div class="qty-controls">
+        <button onclick="changeQty(this,-1)">-</button>
+        <span>1</span>
+        <button onclick="changeQty(this,1)">+</button>
+      </div>
+      <button class="add-btn">Add to Cart</button>
+    </div>
+ 
+  </div>
+
+  <!-- Ad Section -->
+  <div class="ad-section">
+    <div>
+      <h3>Special Offer!</h3>
+      <p>Sell to customers directly. Original price: ₹500, Buy at: ₹450</p>
+    </div>
+    <img src="images/1.jpeg" alt="Itar Image" style="height:132px">
+  </div>
+
+  <!-- Footer -->
+  <footer>
+    <div>📞 +91 9876543210</div>
+    <div>© Mehboob Itars Online</div>
+    <div>📧 alam.rashid039@gmail.com</div>
+  </footer>
+
+  <script>
+    function changeQty(el, delta) {
+      const span = el.parentNode.querySelector('span');
+      let qty = parseInt(span.innerText);
+      qty = Math.max(1, qty + delta);
+      span.innerText = qty;
+    }
+  </script>
+
+</body>
+</html>
